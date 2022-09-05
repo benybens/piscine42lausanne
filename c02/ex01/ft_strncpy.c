@@ -1,15 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybensegh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/06 00:11:34 by ybensegh          #+#    #+#             */
+/*   Updated: 2022/09/06 00:14:15 by ybensegh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdio.h>
 
 char *ft_strncpy(char *dest, char *src, unsigned int n)
 {
 
-	int i;
+	unsigned int	i;
 
-	i=0;
-	while(i<n)
+	i = 0;
+	while (i < n)
 	{
-		if(src[i] == '\0')
+		if (src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		else
 		{
 			while(i<n)
 			{
@@ -17,16 +33,8 @@ char *ft_strncpy(char *dest, char *src, unsigned int n)
 				i++;
 			}
 		}
-		else
-		{
-			dest[i]=src[i];
-			i++;
-		}
 	}
-	dest[i] = '\0'; 
-	
 	return dest;
-
 }
 
 int main (void)
