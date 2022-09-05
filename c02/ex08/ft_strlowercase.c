@@ -5,9 +5,9 @@ char	ft_strupcase(char *str)
 {
 	char maj;
 
-	if ( str[0] >= 'a' && str[0]<= 'z')
+	if ( str[0] >= 'A' && str[0]<= 'Z')
 	{
-		maj=str[0]-32;		
+		maj=str[0]+32;		
 	}
 	return (maj);
 }
@@ -22,7 +22,7 @@ int  main (void)
 	int i;
 
 	i = 0;
-	strcpy(str,"abcdef");
+	strcpy(str,"ABCDEF");
 	while (str[i] != '\0')
 	{
 		printf("%c",ft_strupcase(&str[i]));
