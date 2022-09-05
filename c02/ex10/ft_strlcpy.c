@@ -4,38 +4,48 @@
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int i;
+	int l;
 
-	while (src[i] != 0) 
-
-	if ( str[-1] < 'a' ||  str[-1] > 'z')
+	i = 0;
+	l = 0;
+	while (src[i] != '0')
 	{
-		if (str[0] >= 'a' && str[0] <= 'z')
+		if(i < size)
 		{
-			maj = str[0]-32;		
+			dest[i]=src[i];
 		}
 		else
 		{
-			maj = str[0];
+			dest[i] = '\0';
+			return (i);
 		}
+		i++;
 	}
-	else
-	{
-		maj = str[0];
-	}
-	return (maj);
+	dest[i] = '\0';
 }
 
 
 int  main (void)
 {
-	char	str[50] ;
+	char	src[50];
+	char	dest[10];
 	int i;
+	int size;
+	int length;
 
+	size = 10;
+	length=0;
 	i = 0;
-	strcpy(str,"salut test +un+deux+oui ;ca-joue +42 ?ok");
-	while (str[i] != '\0')
+	strcpy(src,"salut test +un+deux+oui ;ca-joue +42 ?ok");
+	
+	length = ft_strlcpy(&dest[0],&src[0],size);
+	
+	while (dest[i] != '\0')
 	{
-		printf("%c",ft_strcapitalize(&str[i]));
+		printf("%c",dest[i]);
 		i++;
 	}
+	printf("\n");
+	printf("%d",length);
+	printf("\n");
 }
