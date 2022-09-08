@@ -1,49 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybensegh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 00:11:34 by ybensegh          #+#    #+#             */
-/*   Updated: 2022/09/06 00:19:05 by ybensegh         ###   ########.fr       */
+/*   Created: 2022/09/07 13:39:33 by ybensegh          #+#    #+#             */
+/*   Updated: 2022/09/07 13:50:28 by ybensegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-char *ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_strcmp( char *s1, char *s2)
 {
-
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (i < n)
+	while (s1[i] || s2[i])
 	{
-		if (src[i] != '\0')
-		{
-			dest[i] = src[i];
+		if (s1[i] == s2[i])
 			i++;
-		}
 		else
-		{
-			while(i<n)
-			{
-				dest[i] = '\0'; 
-				i++;
-			}
-		}
+			return (s1[i] - s2[i]);
 	}
-	return dest;
 }
 
-int main (void)
+int	main(void)
 {
-	char source[] = "You were the chosen one Anakin";
-	char dest[] = "You were a brother for me" ;
-	int n = 10;
+	char s1[] = "ABC";
+	char s2[] = "Ailll:DFDFdfdfdfE";
 
-	printf("%s\n",dest);
-	ft_strncpy(dest,src.,n);
-	printf("%s\n",dest);
+	printf("%d\n",strcmp(s1,s2));
+	printf("%d\n",ft_strcmp(s1,s2));
+	return (0);
 }
