@@ -1,35 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybensegh <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 14:32:04 by ybensegh          #+#    #+#             */
-/*   Updated: 2022/09/15 12:18:14 by ybensegh         ###   ########.fr       */
+/*   Created: 2022/09/23 00:12:06 by ybensegh          #+#    #+#             */
+/*   Updated: 2022/09/23 00:17:26 by ybensegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-//#include <string.h>
-
-void	ft_putstr(char *str)
+void	ft_sort_int_tab(int *tab, int size)
 {
+	int	tmp;
 	int	i;
+	int	j;
 
 	i = 0;
-	while (*(str + i) != '\0')
+	while (i < size)
 	{
-		write(1, str + i, 1);
+		j = 0;
+		while (j < size)
+		{
+			if (tab[i] < tab[j])
+			{
+				tmp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = tmp;
+			}
+			j++;
+		}
 		i++;
 	}
 }
 
-/*int	main(void)
+/*
+#include <stdio.h>
+int	main (void)
 {
-	char chain[20];
-   
-	strcpy(chain, "salut !");
+	int	tab[5];
 
-	ft_putstr(&chain[0]);
+	tab[0] = 1;
+	tab[1] = 8;
+	tab[2] = 3;
+	tab[3] = 16;
+	tab[4] = 5;
+	
+	ft_sort_int_tab(tab,5);
+
+	int i;
+	
+	i = 0; 
+	while (i < 5)
+	{
+		printf("%d\n",tab[i]);
+		i++;
+	}
 }*/
